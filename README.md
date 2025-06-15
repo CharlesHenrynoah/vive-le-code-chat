@@ -60,6 +60,17 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
+## New chat feature
+
+The chat interface understands a special command:
+
+```
+/component <name>
+```
+
+When used, an intermediate agent searches the UI component library for the best
+match and the front generation agent responds with a usage snippet.
+
 ## How can I deploy this project?
 
 Simply open [Lovable](https://lovable.dev/projects/0261aa8b-c09f-4e67-9eb8-054daf92abd5) and click on Share -> Publish.

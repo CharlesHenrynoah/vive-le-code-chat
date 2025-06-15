@@ -3,6 +3,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Send, Copy, ThumbsUp, ThumbsDown } from 'lucide-react';
+import {
+  frontGenerationAgent,
+  intermediateAgent,
+} from '@/lib/agents';
 
 interface Message {
   id: number;
@@ -35,9 +39,19 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({ messages, onAddMessage }) 
     const userMessage = input.trim();
     setInput('');
     onAddMessage(userMessage, 'user');
-    
+
     setIsTyping(true);
-    
+
+    if (userMessage.startsWith('/component ')) {
+      const query = userMessage.replace('/component ', '');
+      const { steps, best } = intermediateAgent(query);
+      steps.forEach((s) => onAddMessage(s, 'assistant'));
+      const genSteps = frontGenerationAgent(best);
+      genSteps.forEach((s) => onAddMessage(s, 'assistant'));
+      setIsTyping(false);
+      return;
+    }
+
     // Simulate AI response
     setTimeout(() => {
       const responses = [

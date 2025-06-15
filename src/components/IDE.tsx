@@ -36,11 +36,6 @@ const IDE = () => {
       {/* Top Bar */}
       <div className="h-12 bg-[#2d2d30] border-b border-[#3e3e42] flex items-center justify-between px-4">
         <div className="flex items-center space-x-2">
-          <div className="flex space-x-2">
-            <div className="w-3 h-3 bg-[#ff5f57] rounded-full"></div>
-            <div className="w-3 h-3 bg-[#ffbd2e] rounded-full"></div>
-            <div className="w-3 h-3 bg-[#28ca42] rounded-full"></div>
-          </div>
           <span className="ml-4 text-sm text-gray-300">mod.rs</span>
         </div>
       </div>

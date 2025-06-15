@@ -5,7 +5,6 @@ import { RefreshCw, ExternalLink, Smartphone, Tablet, Monitor, Globe } from 'luc
 
 export const PreviewPanel: React.FC = () => {
   const [deviceMode, setDeviceMode] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
-  const [url, setUrl] = useState('https://your-app.lovable.app');
 
   const getDeviceClass = () => {
     switch (deviceMode) {
@@ -50,25 +49,6 @@ export const PreviewPanel: React.FC = () => {
               <Smartphone className="w-4 h-4" />
             </Button>
           </div>
-        </div>
-        
-        {/* Browser Address Bar */}
-        <div className="flex items-center space-x-2 bg-[#2d2d30] rounded-lg p-2 border border-[#3e3e42]">
-          <Button variant="ghost" size="sm" className="p-1 text-gray-400 hover:text-white">
-            <RefreshCw className="w-4 h-4" />
-          </Button>
-          <div className="flex-1 flex items-center bg-[#1e1e1e] rounded px-3 py-1 border border-[#3e3e42]">
-            <Globe className="w-4 h-4 text-gray-400 mr-2" />
-            <input
-              type="text"
-              value={url}
-              onChange={(e) => setUrl(e.target.value)}
-              className="flex-1 bg-transparent text-white text-sm outline-none"
-            />
-          </div>
-          <Button variant="ghost" size="sm" className="p-1 text-gray-400 hover:text-white">
-            <ExternalLink className="w-4 h-4" />
-          </Button>
         </div>
       </div>
 

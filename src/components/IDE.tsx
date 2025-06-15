@@ -1,11 +1,17 @@
-
 import React, { useState } from 'react';
 import { ChatPanel } from './ChatPanel';
 import { PreviewPanel } from './PreviewPanel';
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
 
+interface Message {
+  id: number;
+  type: 'user' | 'assistant';
+  content: string;
+  timestamp: Date;
+}
+
 const IDE = () => {
-  const [messages, setMessages] = useState([
+  const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
       type: 'assistant' as const,
@@ -15,7 +21,7 @@ const IDE = () => {
   ]);
 
   const addMessage = (content: string, type: 'user' | 'assistant') => {
-    const newMessage = {
+    const newMessage: Message = {
       id: messages.length + 1,
       type,
       content,

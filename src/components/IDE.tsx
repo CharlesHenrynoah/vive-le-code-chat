@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ChatPanel } from './ChatPanel';
 import { PreviewPanel } from './PreviewPanel';
@@ -41,12 +42,6 @@ const IDE = () => {
             <div className="w-3 h-3 bg-[#28ca42] rounded-full"></div>
           </div>
           <span className="ml-4 text-sm text-gray-300">mod.rs</span>
-        </div>
-        <div className="flex items-center space-x-4">
-          <div className="flex bg-[#3c3c3c] rounded">
-            <button className="px-3 py-1 text-xs bg-[#0e639c] text-white rounded-l">CHAT</button>
-            <button className="px-3 py-1 text-xs text-gray-300 hover:bg-[#404040] rounded-r">COMPOSER</button>
-          </div>
         </div>
       </div>
 
